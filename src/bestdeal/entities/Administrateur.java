@@ -20,7 +20,7 @@ public class Administrateur {
     private int telephone;
     private String adresse;
     private boolean type_admin;
-
+    private String etat_compte;
     /**
      * @return the id_admin
      */
@@ -145,5 +145,19 @@ public class Administrateur {
      */
     public void setType_admin(boolean type_admin) {
         this.type_admin = type_admin;
+    }
+
+    /**
+     * @return the etat_compte
+     */
+    public String getEtat_compte() {
+        return etat_compte;
+    }
+
+    /**
+     * @param etat_compte the etat_compte to set
+     */
+    public void setEtat_compte(String etat_compte) {
+        this.etat_compte = etat_compte;
     }
 }

@@ -7,10 +7,13 @@
 package bestdeal.gui;
 
 import bestdeal.*;
+import bestdeal.dao.VoucherDAO;
+import bestdeal.entities.Voucher;
 import java.awt.BorderLayout;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Timer;
+import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import org.jfree.chart.ChartFactory;
@@ -41,11 +44,20 @@ public class Statistique extends javax.swing.JFrame {
         
         
         final DefaultPieDataset objDataset = new DefaultPieDataset();
-        objDataset.setValue("Deal 1",35);
+        Voucher v1 = new Voucher();
+        VoucherDAO v2 = new VoucherDAO();
+        int[][] stat = v2.StatDeal();
+        
+            objDataset.setValue(stat[0][0]+"deal1",stat[1][0]);
+            objDataset.setValue(stat[0][1]+"deal2",stat[1][1]);
+            objDataset.setValue(stat[0][2]+"deal2",stat[1][2]);
+            objDataset.setValue(stat[0][3]+"deal2",stat[1][3]);
+            objDataset.setValue(stat[0][4]+"deal2",stat[1][4]);
+        /*objDataset.setValue("Deal 1",2);
         objDataset.setValue("Deal 2",25);
         objDataset.setValue("Deal 3",20);
         objDataset.setValue("Deal 4",13);
-        objDataset.setValue("Deal 5",7);
+        objDataset.setValue("Deal 5",7);*/
         
          JFreeChart objChart = ChartFactory.createPieChart (
          "",   //Chart title
@@ -69,11 +81,7 @@ public class Statistique extends javax.swing.JFrame {
             public void stateChanged(ChangeEvent e) {
                 if (TabbedPane.getSelectedIndex() == 0)
                  {
-                    ComboBox.removeAllItems();
-                    ComboBox.addItem("Best Deal");
-                    ComboBox.addItem("Le plus recent");
-                    ComboBox.addItem("Le plus consulté");
-                    
+                                       
                     objDataset.clear();
                     objDataset.setValue("Deal 1",35);
                     objDataset.setValue("Deal 2",25);
@@ -87,8 +95,7 @@ public class Statistique extends javax.swing.JFrame {
                  }
                 else if (TabbedPane.getSelectedIndex() == 1)
                  {
-                    ComboBox.removeAllItems();
-                    ComboBox.addItem("Best Vendeur");
+                   
                     
                     objDataset.clear();
                     objDataset.setValue("Vendeur 1",60);
@@ -103,8 +110,7 @@ public class Statistique extends javax.swing.JFrame {
                  }
                 else if (TabbedPane.getSelectedIndex() == 2)
                  {
-                    ComboBox.removeAllItems();
-                    ComboBox.addItem("Best Clients");
+                    
                      
                     objDataset.clear();
                     objDataset.setValue("Client 1",40);
@@ -157,8 +163,6 @@ public class Statistique extends javax.swing.JFrame {
         btn_clients3 = new javax.swing.JButton();
         btn_clients4 = new javax.swing.JButton();
         btn_clients5 = new javax.swing.JButton();
-        ComboBox = new javax.swing.JComboBox();
-        txt_rechercher = new javax.swing.JTextField();
         lbl_heure = new javax.swing.JLabel();
         lbl_date1 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
@@ -326,15 +330,6 @@ public class Statistique extends javax.swing.JFrame {
 
         TabbedPane.addTab("Clients", panel_clients);
 
-        ComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Best Deal", "Le plus recent", "Le plus consulté\t" }));
-        ComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBoxActionPerformed(evt);
-            }
-        });
-
-        txt_rechercher.setText("Rechercher ...");
-
         lbl_heure.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         lbl_date1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -352,12 +347,7 @@ public class Statistique extends javax.swing.JFrame {
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PanelLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(TabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PanelLayout.createSequentialGroup()
-                                .addComponent(txt_rechercher, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(TabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 747, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(24, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -373,11 +363,7 @@ public class Statistique extends javax.swing.JFrame {
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbl_date1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                    .addComponent(txt_rechercher))
-                .addGap(18, 18, 18)
+                .addGap(77, 77, 77)
                 .addComponent(TabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(39, Short.MAX_VALUE))
         );
@@ -399,10 +385,6 @@ public class Statistique extends javax.swing.JFrame {
     private void btn_deal2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deal2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_deal2ActionPerformed
-
-    private void ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -440,7 +422,6 @@ public class Statistique extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox ComboBox;
     private javax.swing.JPanel Panel;
     private javax.swing.JTabbedPane TabbedPane;
     private javax.swing.JButton btn_clients1;
@@ -467,6 +448,5 @@ public class Statistique extends javax.swing.JFrame {
     private javax.swing.JPanel panel_clients;
     private javax.swing.JPanel panel_deals;
     private javax.swing.JPanel panel_vendeurs;
-    private javax.swing.JTextField txt_rechercher;
     // End of variables declaration//GEN-END:variables
 }

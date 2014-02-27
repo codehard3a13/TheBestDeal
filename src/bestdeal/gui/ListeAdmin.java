@@ -42,6 +42,7 @@ public class ListeAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btn_bloquer = new javax.swing.JButton();
         btn_supprimer = new javax.swing.JButton();
+        btn_debloquer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +53,11 @@ public class ListeAdmin extends javax.swing.JFrame {
         jLabel1.setText("Liste des administrateurs");
 
         btn_bloquer.setText("Bloquer");
+        btn_bloquer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_bloquerActionPerformed(evt);
+            }
+        });
 
         btn_supprimer.setText("Supprimer");
         btn_supprimer.addActionListener(new java.awt.event.ActionListener() {
@@ -60,22 +66,31 @@ public class ListeAdmin extends javax.swing.JFrame {
             }
         });
 
+        btn_debloquer.setText("Debloquer");
+        btn_debloquer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_debloquerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap(11, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(296, 296, 296))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_supprimer)
+                        .addComponent(btn_supprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_bloquer, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addComponent(btn_bloquer, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_debloquer, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,8 +101,9 @@ public class ListeAdmin extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_bloquer)
-                    .addComponent(btn_supprimer))
+                    .addComponent(btn_supprimer)
+                    .addComponent(btn_debloquer)
+                    .addComponent(btn_bloquer))
                 .addGap(20, 20, 20))
         );
 
@@ -126,6 +142,30 @@ public class ListeAdmin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_supprimerActionPerformed
 
+    private void btn_bloquerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bloquerActionPerformed
+        
+        int ligneSelectionne = jTable1.getSelectedRow();
+        AdministrateurDAO aDAO=new AdministrateurDAO();
+        Administrateur ad = new Administrateur();
+        String Etat_compte = jTable1.getValueAt(ligneSelectionne, 0).toString();
+        ad.setEtat_compte(Etat_compte);
+        aDAO.updateAdmin_ToBloque(ad);
+        JOptionPane.showMessageDialog(null, " Administrateur bloqué ");
+        jTable1.setModel(new AdminModel());
+        
+    }//GEN-LAST:event_btn_bloquerActionPerformed
+
+    private void btn_debloquerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_debloquerActionPerformed
+        int ligneSelectionne = jTable1.getSelectedRow();
+        AdministrateurDAO aDAO=new AdministrateurDAO();
+        Administrateur ad = new Administrateur();
+        String Etat_compte = jTable1.getValueAt(ligneSelectionne, 0).toString();
+        ad.setEtat_compte(Etat_compte);
+        aDAO.updateAdmin_ToNonBloque(ad);
+        JOptionPane.showMessageDialog(null, " Administrateur debloqué ");
+        jTable1.setModel(new AdminModel());
+    }//GEN-LAST:event_btn_debloquerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -163,6 +203,7 @@ public class ListeAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_bloquer;
+    private javax.swing.JButton btn_debloquer;
     private javax.swing.JButton btn_supprimer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

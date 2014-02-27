@@ -48,14 +48,7 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="TabbedPane" min="-2" pref="747" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="txt_rechercher" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="ComboBox" min="-2" pref="120" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="TabbedPane" min="-2" pref="747" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -77,12 +70,7 @@
                       <Component id="lbl_date1" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="ComboBox" pref="30" max="32767" attributes="0"/>
-                      <Component id="txt_rechercher" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                   <Component id="TabbedPane" min="-2" pref="266" max="-2" attributes="0"/>
                   <EmptySpace pref="39" max="32767" attributes="0"/>
               </Group>
@@ -404,25 +392,6 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JComboBox" name="ComboBox">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Best Deal"/>
-                <StringItem index="1" value="Le plus recent"/>
-                <StringItem index="2" value="Le plus consult&#xe9;&#x9;"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboBoxActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txt_rechercher">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Rechercher ..."/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="lbl_heure">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

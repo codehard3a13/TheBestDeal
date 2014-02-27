@@ -84,6 +84,37 @@ public class AdministrateurDAO {
 
     }
     
+    public void updateAdmin_ToBloque(Administrateur ad){
+        String requete = "update administrateur set etat_compte='Bloque' where id_admin=? ";
+        try {                        
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ps.setString(1, ad.getEtat_compte());
+            
+            
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
+        }
+
+    }
+    
+    public void updateAdmin_ToNonBloque(Administrateur ad){
+        String requete = "update administrateur set etat_compte='Non Bloque' where id_admin=? ";
+        try {                        
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ps.setString(1, ad.getEtat_compte());
+                        
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
+        }
+
+    }
+    
     public List<Administrateur> DisplayAllAdmin (){
 
 
@@ -106,6 +137,7 @@ public class AdministrateurDAO {
                 ad.setEmail(resultat.getString(6));
                 ad.setTelephone(resultat.getInt(7));
                 ad.setType_admin(resultat.getBoolean(9));
+                ad.setEtat_compte(resultat.getString(10));
                 listeadmin.add(ad);
             }
             return listeadmin;

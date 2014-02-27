@@ -21,7 +21,7 @@ import javax.swing.table.AbstractTableModel;
 public class AdminModel extends AbstractTableModel{
 
     List<Administrateur> admins = new ArrayList<Administrateur>();
-    String[] header = {"Id admin","Nom","Prénom","Login", "Mot de passe","E-mail","Téléphone","Adresse","Type administrateur"};
+    String[] header = {"Id admin","Nom","Prénom","Login", "Mot de passe","E-mail","Téléphone","Adresse","Type administrateur","Etat compte"};
     
     public AdminModel () {
           admins = new AdministrateurDAO().DisplayAllAdmin();
@@ -58,6 +58,8 @@ public class AdminModel extends AbstractTableModel{
                                       return admins.get(rowIndex).getTelephone(); 
                                           case 8:
                                           return admins.get(rowIndex).isType_admin(); 
+                                              case 9:
+                                              return admins.get(rowIndex).getEtat_compte(); 
                         default:
                            throw new IllegalArgumentException();
         }}
