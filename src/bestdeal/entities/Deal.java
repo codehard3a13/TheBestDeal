@@ -25,6 +25,7 @@ public class Deal {
      private boolean statut_deal;
      private int id_vendeur;
      private String categorie;
+     private String NomVendeur;
 
     /**
      * @return the id_deal
@@ -192,5 +193,19 @@ public class Deal {
      */
     public void setCategorie(String categorie) {
         this.categorie = categorie;
+    }
+
+    /**
+     * @return the NomVendeur
+     */
+    public String getNomVendeur() {
+        return NomVendeur;
+    }
+
+    /**
+     * @param NomVendeur the NomVendeur to set
+     */
+    public void setNomVendeur(String NomVendeur) {
+        this.NomVendeur = NomVendeur;
     }
 }
