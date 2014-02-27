@@ -29,7 +29,7 @@ public class VendeurDAO {
             ps.setLong(5, v.getTelephone());
             ps.setString(6, v.getAdresse());
             ps.setString(7, v.getEmail());
-            ps.setInt(8, v.getEtatCompte());
+            ps.setBoolean(8, v.isEtat_compte());
             
             ps.executeUpdate();
             etatInscription = 0;

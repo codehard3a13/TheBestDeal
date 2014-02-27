@@ -4,7 +4,8 @@
  */
 package bestdeal.dao;
 
-import bestdeal.entites.Client;
+
+import bestdeal.entities.Client;
 import bestdeal.util.MyConnection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -32,7 +33,7 @@ public class ClientDAO {
             ps.setString(3, c.getNom());
             ps.setString(4, c.getPrenom());
             ps.setString(5, c.getEmail());
-            ps.setInt(6, c.getEtatCompte());
+            ps.setBoolean(6, c.isEtat_compte());
             
             ps.executeUpdate();
             etatInscription = 0;

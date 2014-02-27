@@ -44,20 +44,15 @@ public class Statistique extends javax.swing.JFrame {
         
         
         final DefaultPieDataset objDataset = new DefaultPieDataset();
-        Voucher v1 = new Voucher();
         VoucherDAO v2 = new VoucherDAO();
-        int[][] stat = v2.StatDeal();
+        String [][] stat = v2.StatDeal();
         
-            objDataset.setValue(stat[0][0]+"deal1",stat[1][0]);
-            objDataset.setValue(stat[0][1]+"deal2",stat[1][1]);
-            objDataset.setValue(stat[0][2]+"deal2",stat[1][2]);
-            objDataset.setValue(stat[0][3]+"deal2",stat[1][3]);
-            objDataset.setValue(stat[0][4]+"deal2",stat[1][4]);
-        /*objDataset.setValue("Deal 1",2);
-        objDataset.setValue("Deal 2",25);
-        objDataset.setValue("Deal 3",20);
-        objDataset.setValue("Deal 4",13);
-        objDataset.setValue("Deal 5",7);*/
+            objDataset.setValue(stat[0][0],Integer.parseInt(stat[1][0]));
+            objDataset.setValue(stat[0][1],Integer.parseInt(stat[1][1]));
+            objDataset.setValue(stat[0][2],Integer.parseInt(stat[1][2]));
+            objDataset.setValue(stat[0][3],Integer.parseInt(stat[1][3]));
+            objDataset.setValue(stat[0][4],Integer.parseInt(stat[1][4]));
+        
         
          JFreeChart objChart = ChartFactory.createPieChart (
          "",   //Chart title
@@ -83,11 +78,15 @@ public class Statistique extends javax.swing.JFrame {
                  {
                                        
                     objDataset.clear();
-                    objDataset.setValue("Deal 1",35);
-                    objDataset.setValue("Deal 2",25);
-                    objDataset.setValue("Deal 3",20);
-                    objDataset.setValue("Deal 4",13);
-                    objDataset.setValue("Deal 5",7);
+                  VoucherDAO v2 = new VoucherDAO();
+            String [][] stat = v2.StatDeal();
+        
+            objDataset.setValue(stat[0][0],Integer.parseInt(stat[1][0]));
+            objDataset.setValue(stat[0][1],Integer.parseInt(stat[1][1]));
+            objDataset.setValue(stat[0][2],Integer.parseInt(stat[1][2]));
+            objDataset.setValue(stat[0][3],Integer.parseInt(stat[1][3]));
+            objDataset.setValue(stat[0][4],Integer.parseInt(stat[1][4]));
+        
                     
                     panel_deals.add(CP,BorderLayout.WEST);
                     panel_deals.validate(); 
@@ -96,13 +95,12 @@ public class Statistique extends javax.swing.JFrame {
                 else if (TabbedPane.getSelectedIndex() == 1)
                  {
                    
-                    
-                    objDataset.clear();
-                    objDataset.setValue("Vendeur 1",60);
-                    objDataset.setValue("Vendeur 2",20);
-                    objDataset.setValue("Vendeur 3",10);
-                    objDataset.setValue("Vendeur 4",5);
-                    objDataset.setValue("Vendeur 5",5);
+                      objDataset.clear();
+                  VoucherDAO v2 = new VoucherDAO();
+            String [][] stat = v2.StatVendeur();
+        
+            objDataset.setValue(stat[0][0],Integer.parseInt(stat[1][0]));
+            objDataset.setValue(stat[0][1],Integer.parseInt(stat[1][1]));
                     
                     panel_vendeurs.add(CP,BorderLayout.WEST);
                     panel_vendeurs.validate(); 
@@ -111,13 +109,13 @@ public class Statistique extends javax.swing.JFrame {
                 else if (TabbedPane.getSelectedIndex() == 2)
                  {
                     
-                     
                     objDataset.clear();
-                    objDataset.setValue("Client 1",40);
-                    objDataset.setValue("Client 2",20);
-                    objDataset.setValue("Client 3",20);
-                    objDataset.setValue("Client 4",15);
-                    objDataset.setValue("Client 5",5);
+                    VoucherDAO v2 = new VoucherDAO();
+                    String [][] stat = v2.StatClient();
+        
+            objDataset.setValue(stat[0][0],Integer.parseInt(stat[1][0]));
+            objDataset.setValue(stat[0][1],Integer.parseInt(stat[1][1]));
+            objDataset.setValue(stat[0][2],Integer.parseInt(stat[1][2]));
                     
                     panel_clients.add(CP,BorderLayout.WEST);
                     panel_clients.validate(); 
