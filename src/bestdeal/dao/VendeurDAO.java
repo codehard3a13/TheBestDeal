@@ -7,7 +7,11 @@ package bestdeal.dao;
 import bestdeal.entities.Vendeur;
 import bestdeal.util.MyConnection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -37,4 +41,116 @@ public class VendeurDAO {
             etatInscription = 1;
         }
     }
+    
+    
+    
+         public List<Vendeur> DisplayAllVendeurs (){
+
+        List<Vendeur> listeVendeur = new ArrayList<Vendeur>();
+         //where etat_compte=1
+        String requete = "select * from vendeur where etat_compte=1";
+        try {
+           Statement statement = MyConnection.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+          //  DepotDAO depotDAO = new DepotDAO();
+            while(resultat.next()){
+                Vendeur v=new Vendeur();
+                v.setId_vendeur(resultat.getInt(1));
+               v.setLogin(resultat.getString(2));
+               v.setNom(resultat.getString(3));
+              v.setPrenom(resultat.getString(4));
+              v.setPwd(resultat.getString(5));
+              v.setTelephone(resultat.getInt(6));
+              v.setAdresse(resultat.getString(7));
+              v.setEmail(resultat.getString(8));
+              v.setNote(resultat.getInt(9));
+              v.setEtat_compte(resultat.getBoolean(10));
+              listeVendeur.add(v);
+             
+            }
+            return listeVendeur;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des vendeurs "+ex.getMessage());
+            return null;
+        }
+    }
+         
+             public void deleteVendeur (Vendeur c){
+
+          String requete = "delete from vendeur where id_vendeur=?";
+        try {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ps.setString(1, c.getId_vendeur()+"");
+            ps.executeUpdate();
+            System.out.println("Suppression de vendeur effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la suppression de vendeur "+ex.getMessage());
+        }
+    }
+             
+               public void updateVendeur_ToInvalide(Vendeur dl){
+        String requete = "update vendeur set etat_compte=0 where id_vendeur=?";
+        try {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ps.setInt(1, dl.getId_vendeur());
+            ps.executeUpdate();
+            System.out.println("Vendeur Non valide effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de Bloquage de Vendeur "+ex.getMessage());
+        }
+    }
+               
+                    public void updateVendeur_Tovalide(Vendeur dl){
+        String requete = "update vendeur set etat_compte=1 where id_vendeur=?";
+        try {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ps.setInt(1, dl.getId_vendeur());
+            ps.executeUpdate();
+            System.out.println("Vendeur Non valide effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de Bloquage de Vendeur "+ex.getMessage());
+        }
+    }
+                    
+     public List<Vendeur> DisplayAllVendeursAttente (){
+
+        List<Vendeur> listeVendeur = new ArrayList<Vendeur>();
+         //where etat_compte=1
+        String requete = "select * from vendeur where etat_compte=0";
+        try {
+           Statement statement = MyConnection.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+          //  DepotDAO depotDAO = new DepotDAO();
+            while(resultat.next()){
+                Vendeur v=new Vendeur();
+                v.setId_vendeur(resultat.getInt(1));
+               v.setLogin(resultat.getString(2));
+               v.setNom(resultat.getString(3));
+              v.setPrenom(resultat.getString(4));
+              v.setPwd(resultat.getString(5));
+              v.setTelephone(resultat.getInt(6));
+              v.setAdresse(resultat.getString(7));
+              v.setEmail(resultat.getString(8));
+              v.setNote(resultat.getInt(9));
+              v.setEtat_compte(resultat.getBoolean(10));
+              listeVendeur.add(v);
+             
+            }
+            return listeVendeur;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des vendeurs en Attente "+ex.getMessage());
+            return null;
+        }
+    }
+    
+    
+    
+    
 }
