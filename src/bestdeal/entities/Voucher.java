@@ -22,6 +22,17 @@ public class Voucher {
     private Date date;
     private int quantite;
 
+  public Voucher() {
+    }
+
+    public Voucher(int id_client, int id_deal, float prix_unitaire, Date date, int quantite) {
+        this.id_client = id_client;
+        this.id_deal = id_deal;
+        this.prix_unitaire = prix_unitaire;
+        this.date = date;
+        this.quantite = quantite;
+    }
+
     /**
      * @return the id_voucher
      */

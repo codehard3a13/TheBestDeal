@@ -4,7 +4,7 @@
  */
 package bestdeal.dao;
 
-import bestdeal.entites.Vendeur;
+import bestdeal.entities.Vendeur;
 import bestdeal.util.MyConnection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
