@@ -19,7 +19,7 @@ import javax.swing.table.AbstractTableModel;
 public class VendeurModel extends AbstractTableModel{
     
       List<Vendeur> Vendeurs = new ArrayList<Vendeur>();
-    String[] entete = {"id Vendeur", "login", "pwd", "nom", "prenom", "Telephone","adresse","email","Note","Etat Compte"};
+    String[] entete = {"Id Vendeur", "Login", "Mot de Passe", " Nom ", " Prenom ", "Telephone","Adresse","Email","Note","Etat Compte"};
 
     public VendeurModel() {
         
@@ -31,6 +31,12 @@ public class VendeurModel extends AbstractTableModel{
         
        Vendeurs=new VendeurDAO().DisplayAllVendeursAttente();
        System.out.println("vendeur afficher"+Vendeurs);
+    }
+    
+    public VendeurModel(int a,String v) {
+        
+       Vendeurs=new VendeurDAO().DisplayAllVendeurssByName(v);
+      
     }
     
 

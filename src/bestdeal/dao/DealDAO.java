@@ -6,6 +6,7 @@
 
 package bestdeal.dao;
 
+import bestdeal.entities.Client;
 import bestdeal.entities.Deal;
 import bestdeal.entities.Vendeur;
 import bestdeal.util.MyConnection;
@@ -151,7 +152,41 @@ public class DealDAO {
         }
     }
            
-           
+           public List<Deal> DisplayAllDealsByName (String st){
+
+        List<Deal> listeDeals = new ArrayList<Deal>();
+        
+        String requete = "select * from deal where nom='"+st+"'" ;
+        try {
+           Statement statement = MyConnection.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+          //  DepotDAO depotDAO = new DepotDAO();
+            while(resultat.next()){
+                Deal deal=new Deal();
+                deal.setId_deal(resultat.getInt(1));
+                deal.setNom_deal(resultat.getString(2));
+                deal.setDescription(resultat.getString(3));
+                deal.setPrix(resultat.getFloat(4));
+                deal.setDate_debut(resultat.getDate(5));
+                deal.setDate_fin(resultat.getDate(6));
+                deal.setRemise(resultat.getInt(7));
+                deal.setNote(resultat.getInt(8));
+                deal.setQuantite(resultat.getInt(9));
+                deal.setCategorie(resultat.getString(10));
+                deal.setStatut_deal(resultat.getBoolean(11));
+               // v.setNom(resultat.getString(12));
+                deal.setNomVendeur(resultat.getString(12));
+                
+              listeDeals.add(deal);
+            }
+            return listeDeals;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du Recherche des clients "+ex.getMessage());
+            return null;
+        }
+    } 
            
     
     

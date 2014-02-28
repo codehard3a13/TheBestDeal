@@ -20,7 +20,7 @@ import javax.swing.table.AbstractTableModel;
 public class ClientModel extends AbstractTableModel{
 
       List<Client> clients = new ArrayList<Client>();
-    String[] entete = {"id_client", "login", "pwd", "nom", "prenom", "email","etat compte"};
+    String[] entete = {"Id client", "Login", "Mot de Passe", "Nom", "Prenom", "Email","Etat compte"};
     
     
     @Override

@@ -26,12 +26,16 @@ public class DealModel extends AbstractTableModel{
         public DealModel() {
         Deals= new DealDAO().DisplayAllDeals();
           System.out.println(Deals);
-    }
+          }
     
      public DealModel(String a) {
       Deals=new DealAttenteDAO().DisplayAllDealsAttente();
     }
-
+   
+   public DealModel(int a,String b)
+   {
+       Deals=new DealDAO().DisplayAllDealsByName(b);
+   }
     
     @Override
     public int getRowCount() {
@@ -77,10 +81,6 @@ public class DealModel extends AbstractTableModel{
       public String getColumnName(int column) {
         return entete[column];
     }
-public boolean isCellEditable(int iRowIndex, int iColumnIndex)
- {
-       return true;
- }  
-    
-    
+ 
+   
 }

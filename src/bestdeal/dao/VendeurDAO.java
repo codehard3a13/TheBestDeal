@@ -4,6 +4,7 @@
  */
 package bestdeal.dao;
 
+import bestdeal.entities.Client;
 import bestdeal.entities.Vendeur;
 import bestdeal.util.MyConnection;
 import java.sql.PreparedStatement;
@@ -58,9 +59,9 @@ public class VendeurDAO {
                 Vendeur v=new Vendeur();
                 v.setId_vendeur(resultat.getInt(1));
                v.setLogin(resultat.getString(2));
-               v.setNom(resultat.getString(3));
-              v.setPrenom(resultat.getString(4));
-              v.setPwd(resultat.getString(5));
+                v.setPwd(resultat.getString(3));
+               v.setNom(resultat.getString(4));
+              v.setPrenom(resultat.getString(5));
               v.setTelephone(resultat.getInt(6));
               v.setAdresse(resultat.getString(7));
               v.setEmail(resultat.getString(8));
@@ -131,9 +132,9 @@ public class VendeurDAO {
                 Vendeur v=new Vendeur();
                 v.setId_vendeur(resultat.getInt(1));
                v.setLogin(resultat.getString(2));
-               v.setNom(resultat.getString(3));
-              v.setPrenom(resultat.getString(4));
-              v.setPwd(resultat.getString(5));
+                v.setPwd(resultat.getString(3));
+               v.setNom(resultat.getString(4));
+              v.setPrenom(resultat.getString(5));
               v.setTelephone(resultat.getInt(6));
               v.setAdresse(resultat.getString(7));
               v.setEmail(resultat.getString(8));
@@ -150,7 +151,37 @@ public class VendeurDAO {
         }
     }
     
-    
+     public List<Vendeur> DisplayAllVendeurssByName (String st){
+
+        List<Vendeur> listeVendeur = new ArrayList<Vendeur>();
+        
+        String requete = "select * from vendeur where nom='"+st+"'" ;
+        try {
+           Statement statement = MyConnection.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+          //  DepotDAO depotDAO = new DepotDAO();
+            while(resultat.next()){
+               Vendeur v=new Vendeur();
+                v.setId_vendeur(resultat.getInt(1));
+               v.setLogin(resultat.getString(2));
+                v.setPwd(resultat.getString(3));
+               v.setNom(resultat.getString(4));
+              v.setPrenom(resultat.getString(5));
+              v.setTelephone(resultat.getInt(6));
+              v.setAdresse(resultat.getString(7));
+              v.setEmail(resultat.getString(8));
+              v.setNote(resultat.getInt(9));
+              v.setEtat_compte(resultat.getBoolean(10));
+              listeVendeur.add(v);
+            }
+            return listeVendeur;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du Recherche des Vendeurs "+ex.getMessage());
+            return null;
+        }
+    }
     
     
 }
