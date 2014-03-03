@@ -4,7 +4,7 @@
  */
 package bestdeal.dao;
 
-import bestdeal.entites.Mail;
+import bestdeal.entities.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -20,8 +20,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.Transport;
-import bestdeal.entites.Reclamation;
-import bestdeal.entites.Reclamation;
+import bestdeal.entities.Reclamation;
+import bestdeal.entities.Reclamation;
 import bestdeal.util.MyConnection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -113,9 +113,5 @@ public class MailConstructionDAO {
         }
         
     }
-       
-    
-    
-    
-    
+     
 }

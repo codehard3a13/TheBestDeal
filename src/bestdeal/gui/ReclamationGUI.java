@@ -6,7 +6,7 @@
 package bestdeal.gui;
 
 import bestdeal.dao.ReclamationDAO;
-import bestdeal.entites.Reclamation;
+import bestdeal.entities.Reclamation;
 
 /**
  *

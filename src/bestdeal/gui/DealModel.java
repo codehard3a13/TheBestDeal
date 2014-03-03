@@ -24,11 +24,13 @@ public class DealModel extends AbstractTableModel{
     String[] entete = {"Id Deal","Nom Deal","Description","Prix","Date Debut","Date Fin","Remise","Note","Quantité","Categorie","Etat Deal","Nom Vendeur"};
 
         public DealModel() {
+            
         Deals= new DealDAO().DisplayAllDeals();
           System.out.println(Deals);
+          
           }
     
-     public DealModel(String a) {
+     public DealModel(int a) {
       Deals=new DealAttenteDAO().DisplayAllDealsAttente();
     }
    

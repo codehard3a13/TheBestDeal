@@ -21,17 +21,16 @@ import java.util.List;
  */
 public class DealAttenteDAO {
     public List<Deal> DisplayAllDealsAttente (){
-
-         List<Deal> listeDealsAttente = new ArrayList<Deal>();
-
         
-       String requete = "select d.id_deal,d.nom_deal,d.description,d.prix,d.date_debut,d.date_fin,d.remise,d.note,d.quantite,d.categorie,d.statut_deal,v.nom  from deal d join vendeur v on d.id_vendeur=v.id_vendeur where d.statut_deal=0";
+  List<Deal> listeDeals = new ArrayList<Deal>();
+
+        String requete = "select d.id_deal,d.nom_deal,d.description,d.prix,d.date_debut,d.date_fin,d.remise,d.note,d.quantite,d.categorie,d.statut_deal,v.nom  from deal d join vendeur v on d.id_vendeur=v.id_vendeur where d.statut_deal=0";
         try {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
             ResultSet resultat = statement.executeQuery(requete);
              Deal deal=new Deal();
-             Vendeur v=new Vendeur();
+         
             while(resultat.next()){
                 
                 deal.setId_deal(resultat.getInt(1));
@@ -48,14 +47,15 @@ public class DealAttenteDAO {
                // v.setNom(resultat.getString(12));
                 deal.setNomVendeur(resultat.getString(12));
                 
-              listeDealsAttente.add(deal);
+              listeDeals.add(deal);
             }
-           return listeDealsAttente;
+           return listeDeals;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors du chargement des Deals en Attente "+ex.getMessage());
+            System.out.println("erreur lors du chargement des Deals "+ex.getMessage());
             return null;
         }
+      
     }
     
     

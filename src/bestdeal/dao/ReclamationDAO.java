@@ -6,7 +6,7 @@
 
 package bestdeal.dao;
 
-import bestdeal.entites.Reclamation;
+import bestdeal.entities.Reclamation;
 import bestdeal.util.MyConnection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -25,7 +25,7 @@ public class ReclamationDAO {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1, r.getTitre());
             ps.setString(2, r.getContenu());
-            //ps.setString(3, r.getId_client());
+            ps.setInt(3, r.getId_client());
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {

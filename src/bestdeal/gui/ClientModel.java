@@ -33,6 +33,7 @@ public class ClientModel extends AbstractTableModel{
     }
     
        public ClientModel() {
+           
         clients=new ClientDAO().DisplayAllClients();
         System.out.println(clients);
     }

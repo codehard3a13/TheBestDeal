@@ -68,7 +68,7 @@ public class VendeurDAO {
               v.setNote(resultat.getInt(9));
               v.setEtat_compte(resultat.getBoolean(10));
               listeVendeur.add(v);
-             
+              
             }
             return listeVendeur;
         } catch (SQLException ex) {

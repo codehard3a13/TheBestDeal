@@ -43,6 +43,7 @@ public class ListeAdmin extends javax.swing.JFrame {
         btn_bloquer = new javax.swing.JButton();
         btn_supprimer = new javax.swing.JButton();
         btn_debloquer = new javax.swing.JButton();
+        cmd_Annuler = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +74,13 @@ public class ListeAdmin extends javax.swing.JFrame {
             }
         });
 
+        cmd_Annuler.setText("Annuler");
+        cmd_Annuler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmd_AnnulerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -86,10 +94,13 @@ public class ListeAdmin extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 836, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btn_supprimer, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btn_bloquer, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_debloquer, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_debloquer, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmd_Annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -103,7 +114,8 @@ public class ListeAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_supprimer)
                     .addComponent(btn_debloquer)
-                    .addComponent(btn_bloquer))
+                    .addComponent(btn_bloquer)
+                    .addComponent(cmd_Annuler))
                 .addGap(20, 20, 20))
         );
 
@@ -166,6 +178,11 @@ public class ListeAdmin extends javax.swing.JFrame {
         jTable1.setModel(new AdminModel());
     }//GEN-LAST:event_btn_debloquerActionPerformed
 
+    private void cmd_AnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_AnnulerActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_cmd_AnnulerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -205,6 +222,7 @@ public class ListeAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btn_bloquer;
     private javax.swing.JButton btn_debloquer;
     private javax.swing.JButton btn_supprimer;
+    private javax.swing.JButton cmd_Annuler;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

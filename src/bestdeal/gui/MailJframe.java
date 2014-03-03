@@ -4,9 +4,9 @@
  */
 package bestdeal.gui;
 
-import bestdeal.entites.Mail;
+import bestdeal.entities.Mail;
 import bestdeal.dao.MailConstructionDAO;
-import bestdeal.entites.Reclamation;
+import bestdeal.entities.Reclamation;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.swing.JFileChooser;
@@ -198,6 +198,7 @@ public class MailJframe extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
         JFileChooser chooser = new JFileChooser();
         int option = chooser.showOpenDialog(null);
         if(option == JFileChooser.APPROVE_OPTION){
@@ -221,6 +222,7 @@ public class MailJframe extends javax.swing.JFrame {
         r.setContenu(jTextArea1.getText());
         //r.setId_client(client.getid());
         mc.ajouterReclamation(r);
+        
         mail.setMailAddressRecipient(jTextMailAddressReceiver.getText());
         mail.setPwd(jPassworSender.getText());
         mail.setMailAddressSender(jTextMailAddressSender.getText());
