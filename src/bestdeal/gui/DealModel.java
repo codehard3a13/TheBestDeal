@@ -32,11 +32,13 @@ public class DealModel extends AbstractTableModel{
     
      public DealModel(int a) {
       Deals=new DealAttenteDAO().DisplayAllDealsAttente();
+       System.out.println(Deals);
     }
    
    public DealModel(int a,String b)
    {
        Deals=new DealDAO().DisplayAllDealsByName(b);
+        System.out.println(Deals);
    }
     
     @Override

@@ -45,58 +45,60 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="lbl_adresse" min="-2" pref="134" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Component id="txt_adresse" min="-2" pref="239" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
-                          <Component id="txt_name" min="-2" pref="180" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="lbl_telephone" max="32767" attributes="0"/>
-                              <Component id="lbl_mail" pref="134" max="32767" attributes="0"/>
+                              <Component id="lbl_prenom" alignment="0" pref="110" max="32767" attributes="0"/>
+                              <Component id="lbl_nom" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lbl_pwd" alignment="1" max="32767" attributes="0"/>
+                              <Component id="lbl_login" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txt_telephone" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="txt_email" min="-2" pref="180" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="lbl_prenom" max="32767" attributes="0"/>
-                              <Component id="lbl_nom" max="32767" attributes="0"/>
-                              <Component id="lbl_pwd" pref="135" max="32767" attributes="0"/>
-                              <Component id="lbl_login" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="txt_login" min="-2" pref="180" max="-2" attributes="0"/>
                               <Component id="txt_prenom" min="-2" pref="180" max="-2" attributes="0"/>
-                              <Component id="PasswordField_pwd" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="PasswordField_pwd" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="txt_name" min="-2" pref="180" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lbl_adresse" max="32767" attributes="0"/>
+                              <Component id="lbl_mail" pref="110" max="32767" attributes="0"/>
+                              <Component id="lbl_telephone" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txt_telephone" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="txt_email" min="-2" pref="180" max="-2" attributes="0"/>
+                              <Component id="txt_adresse" alignment="1" min="-2" pref="239" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="340" max="32767" attributes="0"/>
-                  <Component id="cmd_enregister" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="cmd_annuler" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="cmd_enregister" min="-2" pref="106" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="cmd_annuler" min="-2" pref="106" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="lbl_admin" alignment="1" min="-2" pref="140" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Component id="lbl_admin" min="-2" pref="140" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbl_nom" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                       <Component id="txt_name" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -131,12 +133,12 @@
                       <Component id="lbl_adresse" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txt_adresse" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cmd_annuler" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmd_enregister" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="cmd_annuler" pref="31" max="32767" attributes="0"/>
+                      <Component id="cmd_enregister" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -212,6 +214,8 @@
           </Events>
         </Component>
         <Component class="javax.swing.JPasswordField" name="PasswordField_pwd">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lbl_admin">
         </Component>
       </SubComponents>
     </Container>

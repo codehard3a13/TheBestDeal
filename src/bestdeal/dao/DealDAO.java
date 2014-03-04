@@ -33,10 +33,10 @@ public class DealDAO {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
             ResultSet resultat = statement.executeQuery(requete);
-             Deal deal=new Deal();
+            
              Vendeur v=new Vendeur();
             while(resultat.next()){
-                
+                 Deal deal=new Deal();
                 deal.setId_deal(resultat.getInt(1));
                 deal.setNom_deal(resultat.getString(2));
                 deal.setDescription(resultat.getString(3));

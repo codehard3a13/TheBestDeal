@@ -29,10 +29,10 @@ public class DealAttenteDAO {
            Statement statement = MyConnection.getInstance()
                    .createStatement();
             ResultSet resultat = statement.executeQuery(requete);
-             Deal deal=new Deal();
+            
          
             while(resultat.next()){
-                
+                 Deal deal=new Deal();
                 deal.setId_deal(resultat.getInt(1));
                 deal.setNom_deal(resultat.getString(2));
                 deal.setDescription(resultat.getString(3));
