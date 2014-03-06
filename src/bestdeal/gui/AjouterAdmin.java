@@ -8,10 +8,11 @@ package bestdeal.gui;
 
 import bestdeal.dao.AdministrateurDAO;
 import bestdeal.entities.Administrateur;
+import static bestdeal.gui.AccueilAdmin.panel;
 import javax.swing.JOptionPane;
 
-import java.awt.Component;
-import javax.swing.JFrame;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -24,7 +25,11 @@ public class AjouterAdmin extends javax.swing.JFrame {
      */
     public AjouterAdmin() {
         initComponents();
-                
+        panel = new ImagePanel(new ImageIcon("C:\\Users\\Jedidi\\Desktop\\111.jpg").getImage());
+        jPanel1.add(panel);
+        lbl_admin1.setIcon((Icon) new ImageIcon("C:\\Users\\Jedidi\\Desktop\\user.png"));
+        cmd_annuler.setIcon((Icon) new ImageIcon("C:\\Users\\Jedidi\\Desktop\\icone\\ann.png"));  
+        cmd_enregistrer.setIcon((Icon) new ImageIcon("C:\\Users\\Jedidi\\Desktop\\icone\\enregistrer.png"));
     }
 
     /**
@@ -52,156 +57,184 @@ public class AjouterAdmin extends javax.swing.JFrame {
         txt_email = new javax.swing.JTextField();
         txt_telephone = new javax.swing.JTextField();
         txt_adresse = new javax.swing.JTextField();
-        cmd_ajouter = new javax.swing.JButton();
+        cmd_enregistrer = new javax.swing.JButton();
         cmd_annuler = new javax.swing.JButton();
         PasswordField_pwd = new javax.swing.JPasswordField();
         lbl_pwd1 = new javax.swing.JLabel();
         PasswordField_pwd1 = new javax.swing.JPasswordField();
+        lbl_admin1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ajouter Administrateur");
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        lbl_login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_login.setText("Login :");
 
+        lbl_nom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_nom.setText("Nom :");
 
+        lbl_prenom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_prenom.setText("Prénom :            ");
 
+        lbl_type_admin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_type_admin.setText("Type administrateur :");
 
+        txt_login.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_loginActionPerformed(evt);
             }
         });
 
+        txt_name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txt_prenom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_prenom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_prenomActionPerformed(evt);
             }
         });
 
-        combo_Type_Admin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Super Admin", "Simple Admin" }));
+        combo_Type_Admin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        combo_Type_Admin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Super Administrateur", "Simple Administrateur" }));
 
+        lbl_pwd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_pwd.setText("Créez un mot de passe :");
 
+        lbl_mail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_mail.setText("Adresse E-mail :");
 
-        lbl_telephone.setText("N telephone :");
+        lbl_telephone.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_telephone.setText("N° téléphone  :");
 
+        lbl_adresse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_adresse.setText("Adresse :  ");
 
-        cmd_ajouter.setText("Ajouter");
-        cmd_ajouter.addActionListener(new java.awt.event.ActionListener() {
+        txt_email.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txt_telephone.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txt_adresse.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        cmd_enregistrer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmd_ajouterActionPerformed(evt);
+                cmd_enregistrerActionPerformed(evt);
             }
         });
 
-        cmd_annuler.setText("Annuler");
         cmd_annuler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmd_annulerActionPerformed(evt);
             }
         });
 
+        PasswordField_pwd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        lbl_pwd1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_pwd1.setText("Confirmez votre mot de passe :");
+
+        PasswordField_pwd1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_type_admin)
-                                    .addComponent(lbl_adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(48, 48, 48)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(combo_Type_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(182, 182, 182)
-                                .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lbl_pwd1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PasswordField_pwd1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lbl_telephone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbl_mail, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
-                                .addGap(48, 48, 48)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lbl_prenom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbl_nom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbl_pwd, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                    .addComponent(lbl_login, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(47, 47, 47)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PasswordField_pwd, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(lbl_pwd1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(PasswordField_pwd1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(360, 360, 360)
-                        .addComponent(cmd_ajouter)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmd_annuler)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lbl_telephone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbl_mail, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE))
+                        .addGap(96, 96, 96)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_type_admin)
+                                .addComponent(lbl_adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(82, 82, 82)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txt_adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(combo_Type_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmd_enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cmd_annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lbl_prenom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_nom, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_pwd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_login, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(64, 64, 64)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(PasswordField_pwd, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(lbl_admin1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lbl_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbl_admin1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_prenom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_login, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_pwd)
                     .addComponent(PasswordField_pwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_pwd1)
                     .addComponent(PasswordField_pwd1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_mail, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_telephone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt_telephone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_adresse)
                     .addComponent(txt_adresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_type_admin)
                     .addComponent(combo_Type_Admin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmd_ajouter)
-                    .addComponent(cmd_annuler))
-                .addGap(61, 61, 61))
+                    .addComponent(cmd_annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmd_enregistrer, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,9 +249,10 @@ public class AjouterAdmin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmd_ajouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_ajouterActionPerformed
+    private void cmd_enregistrerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_enregistrerActionPerformed
         
         if      (txt_name.getText().equals("") || 
                  txt_prenom.getText().equals("") ||  
@@ -230,7 +264,7 @@ public class AjouterAdmin extends javax.swing.JFrame {
                  txt_telephone.getText().equals("")
                 )
         {
-           JOptionPane.showMessageDialog( null, "Veuillez completer les champs vides" ); 
+           JOptionPane.showMessageDialog( null, "Veuillez compléter les champs vides !!!" ); 
         }
         else if (!PasswordField_pwd1.getText().equals(PasswordField_pwd.getText()))
         {
@@ -244,7 +278,7 @@ public class AjouterAdmin extends javax.swing.JFrame {
         }
         else if (txt_telephone.getText().matches("[a-z]*"+"[A-Z]*"))
         {
-        JOptionPane.showMessageDialog( null, "Veuillez vérifier votre numéro de telephone !!!" );
+        JOptionPane.showMessageDialog( null, "Veuillez vérifier votre numéro de téléphone !!!" );
         txt_telephone.setText(""); 
         }
         else
@@ -267,7 +301,7 @@ public class AjouterAdmin extends javax.swing.JFrame {
         JOptionPane.showMessageDialog( null, "Administrateur ajouté avec succés !!!" );
         }
         
-    }//GEN-LAST:event_cmd_ajouterActionPerformed
+    }//GEN-LAST:event_cmd_enregistrerActionPerformed
 
     private void txt_prenomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_prenomActionPerformed
         // TODO add your handling code here:
@@ -321,10 +355,11 @@ public class AjouterAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField PasswordField_pwd;
     private javax.swing.JPasswordField PasswordField_pwd1;
-    private javax.swing.JButton cmd_ajouter;
     private javax.swing.JButton cmd_annuler;
+    private javax.swing.JButton cmd_enregistrer;
     private javax.swing.JComboBox combo_Type_Admin;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl_admin1;
     private javax.swing.JLabel lbl_adresse;
     private javax.swing.JLabel lbl_login;
     private javax.swing.JLabel lbl_mail;

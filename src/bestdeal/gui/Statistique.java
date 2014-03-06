@@ -7,6 +7,7 @@
 package bestdeal.gui;
 
 import bestdeal.dao.VoucherDAO;
+import static bestdeal.gui.AccueilAdmin.panel;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.text.SimpleDateFormat;
@@ -35,6 +36,9 @@ public class Statistique extends javax.swing.JFrame {
     public Statistique() {
         initComponents();
         
+        btn_retour.setIcon((Icon) new ImageIcon("C:\\Users\\Jedidi\\Desktop\\icone\\retour.png"));
+        panel = new ImagePanel(new ImageIcon("C:\\Users\\Jedidi\\Desktop\\111.jpg").getImage());
+        Panel.add(panel);
         lbl_log.setIcon((Icon) new ImageIcon("C:\\Users\\Jedidi\\Desktop\\Logo_.png"));
                
         SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
@@ -169,7 +173,7 @@ public class Statistique extends javax.swing.JFrame {
         lbl_date1 = new javax.swing.JLabel();
         lbl_log = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_retour = new javax.swing.JButton();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -224,7 +228,7 @@ public class Statistique extends javax.swing.JFrame {
         panel_dealsLayout.setHorizontalGroup(
             panel_dealsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_dealsLayout.createSequentialGroup()
-                .addContainerGap(715, Short.MAX_VALUE)
+                .addContainerGap(730, Short.MAX_VALUE)
                 .addGroup(panel_dealsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_deal4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_deal3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -304,7 +308,7 @@ public class Statistique extends javax.swing.JFrame {
         panel_vendeursLayout.setHorizontalGroup(
             panel_vendeursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_vendeursLayout.createSequentialGroup()
-                .addContainerGap(723, Short.MAX_VALUE)
+                .addContainerGap(738, Short.MAX_VALUE)
                 .addGroup(panel_vendeursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_vendeurs2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_vendeurs1, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -382,7 +386,7 @@ public class Statistique extends javax.swing.JFrame {
         panel_clientsLayout.setHorizontalGroup(
             panel_clientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_clientsLayout.createSequentialGroup()
-                .addContainerGap(726, Short.MAX_VALUE)
+                .addContainerGap(741, Short.MAX_VALUE)
                 .addGroup(panel_clientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_clients2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_clients1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -422,10 +426,9 @@ public class Statistique extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 204, 204));
         jLabel1.setText("Get Yours Now !!!");
 
-        jButton1.setText("Retour");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_retour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_retourActionPerformed(evt);
             }
         });
 
@@ -437,11 +440,11 @@ public class Statistique extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelLayout.createSequentialGroup()
-                        .addComponent(TabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1239, Short.MAX_VALUE)
+                        .addComponent(TabbedPane)
                         .addGap(30, 30, 30))
                     .addGroup(PanelLayout.createSequentialGroup()
                         .addComponent(lbl_log, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 774, Short.MAX_VALUE)
                         .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
                                 .addComponent(lbl_date1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -457,7 +460,7 @@ public class Statistique extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_retour, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
         );
         PanelLayout.setVerticalGroup(
@@ -479,8 +482,8 @@ public class Statistique extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(TabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(btn_retour, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -597,9 +600,9 @@ public class Statistique extends javax.swing.JFrame {
     
     }//GEN-LAST:event_btn_clients5ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_retourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_retourActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_retourActionPerformed
 
     /**
      * @param args the command line arguments
@@ -649,12 +652,12 @@ public class Statistique extends javax.swing.JFrame {
     private javax.swing.JButton btn_deal3;
     private javax.swing.JButton btn_deal4;
     private javax.swing.JButton btn_deal5;
+    private javax.swing.JButton btn_retour;
     private javax.swing.JButton btn_vendeurs1;
     private javax.swing.JButton btn_vendeurs2;
     private javax.swing.JButton btn_vendeurs3;
     private javax.swing.JButton btn_vendeurs4;
     private javax.swing.JButton btn_vendeurs5;
-    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

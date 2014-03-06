@@ -21,7 +21,7 @@ public class DealModel extends AbstractTableModel{
     
     
      List<Deal> Deals = new ArrayList<Deal>();
-    String[] entete = {"Id Deal","Nom Deal","Description","Prix","Date Debut","Date Fin","Remise","Note","Quantité","Categorie","Etat Deal","Nom Vendeur"};
+     String[] entete = {"Id Deal","Nom Deal","Description","Prix","Date Debut","Date Fin","Remise","Note","Quantité","Categorie","Etat Deal","Nom Vendeur"};
 
         public DealModel() {
             

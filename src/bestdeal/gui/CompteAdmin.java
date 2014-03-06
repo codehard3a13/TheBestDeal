@@ -8,6 +8,7 @@ package bestdeal.gui;
 
 import bestdeal.dao.AdministrateurDAO;
 import bestdeal.entities.Administrateur;
+import static bestdeal.gui.AccueilAdmin.panel;
 import javax.swing.JOptionPane;
 
 import javax.swing.Icon;
@@ -25,8 +26,12 @@ public class CompteAdmin extends javax.swing.JFrame {
     public CompteAdmin() {
         initComponents();
         
+        cmd_annuler.setIcon((Icon) new ImageIcon("C:\\Users\\Jedidi\\Desktop\\icone\\ann.png"));
+        cmd_enregister.setIcon((Icon) new ImageIcon("C:\\Users\\Jedidi\\Desktop\\icone\\enregistrer.png"));
         lbl_admin.setIcon((Icon) new ImageIcon("C:\\Users\\Jedidi\\Desktop\\admin.png"));
-        
+        panel = new ImagePanel(new ImageIcon("C:\\Users\\Jedidi\\Desktop\\111.jpg").getImage());
+        jPanel1.add(panel);
+       
         AdministrateurDAO a = new AdministrateurDAO();
         txt_name.setText(a.displayForAdmin().getNom());
         txt_prenom.setText(a.displayForAdmin().getPrenom());
@@ -67,48 +72,66 @@ public class CompteAdmin extends javax.swing.JFrame {
         lbl_admin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Compte");
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        lbl_login.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_login.setText("Login :");
 
+        lbl_nom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_nom.setText("Nom :");
 
+        lbl_prenom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_prenom.setText("Prénom :            ");
 
+        txt_login.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_loginActionPerformed(evt);
             }
         });
 
+        txt_name.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txt_prenom.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_prenom.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_prenomActionPerformed(evt);
             }
         });
 
+        lbl_pwd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_pwd.setText("Mot de passe :");
 
+        lbl_mail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_mail.setText("Adresse E-mail :");
 
-        lbl_telephone.setText("N telephone :");
+        lbl_telephone.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lbl_telephone.setText("N° téléphone  :");
 
+        lbl_adresse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbl_adresse.setText("Adresse :  ");
 
-        cmd_enregister.setText("Enregistrer");
+        txt_email.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txt_telephone.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        txt_adresse.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
         cmd_enregister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmd_enregisterActionPerformed(evt);
             }
         });
 
-        cmd_annuler.setText("Annuler");
         cmd_annuler.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmd_annulerActionPerformed(evt);
             }
         });
+
+        PasswordField_pwd.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,7 +142,7 @@ public class CompteAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lbl_prenom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(lbl_prenom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_nom, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_pwd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -133,30 +156,27 @@ public class CompteAdmin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_adresse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lbl_mail, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(lbl_mail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lbl_telephone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_adresse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(76, 76, 76))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cmd_enregister, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cmd_annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lbl_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                            .addComponent(lbl_admin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_telephone, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_adresse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cmd_enregister, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cmd_annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(30, 30, 30))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(30, 30, 30)
                 .addComponent(lbl_admin, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -184,11 +204,11 @@ public class CompteAdmin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_adresse)
                     .addComponent(txt_adresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cmd_annuler, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-                    .addComponent(cmd_enregister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(50, 50, 50))
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmd_annuler, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmd_enregister, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,6 +223,7 @@ public class CompteAdmin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmd_enregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_enregisterActionPerformed
@@ -216,11 +237,11 @@ public class CompteAdmin extends javax.swing.JFrame {
                  txt_telephone.getText().equals("")
                 )
         {
-           JOptionPane.showMessageDialog( null, "Veuillez completer les champs vides" ); 
+           JOptionPane.showMessageDialog( null, "Veuillez completer les champs vides !!!" ); 
         }
         else if (txt_telephone.getText().matches("[a-z]*"+"[A-Z]*"))
         {
-        JOptionPane.showMessageDialog( null, "Veuillez vérifier votre numéro de telephone !!!" );
+        JOptionPane.showMessageDialog( null, "Veuillez vérifier votre numéro de téléphone !!!" );
         txt_telephone.setText(""); 
         }
         else
@@ -235,7 +256,7 @@ public class CompteAdmin extends javax.swing.JFrame {
         a.setAdresse(txt_adresse.getText());
         a.setTelephone(Integer.parseInt(txt_telephone.getText()));
         d.updateAdmin(a);  
-        JOptionPane.showMessageDialog( null, "Modification enregistrée !!!" );
+        JOptionPane.showMessageDialog( null, "Modifications enregistrées !!!" );
         this.dispose();
         }
         

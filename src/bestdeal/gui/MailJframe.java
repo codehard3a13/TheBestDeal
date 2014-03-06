@@ -219,7 +219,7 @@ public class MailJframe extends javax.swing.JFrame {
     private void jButtonSendMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendMailActionPerformed
         Reclamation r = new Reclamation();
         r.setTitre(jTextmailsubject.getText());
-        r.setContenu(jTextArea1.getText());
+        r.setText(jTextArea1.getText());
         //r.setId_client(client.getid());
         mc.ajouterReclamation(r);
         
